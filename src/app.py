@@ -13,6 +13,11 @@ import os
 
 app = FastAPI()
 
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to VibeLink app"}
+
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
