@@ -23,7 +23,3 @@ def get_db():
     finally:
         db.close()
 
-DATABASE_URL = "postgresql+psycopg2://{settings.database_username}:{settings.database_password}@{database.hostname}:{settings.database_port}/{settings.database_name}"
-
-
-
