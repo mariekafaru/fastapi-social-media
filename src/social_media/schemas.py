@@ -13,7 +13,7 @@ class UserOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True  
+        from_attributes = True  
 
 class UserLogin(BaseModel):
     email: EmailStr  
@@ -34,14 +34,14 @@ class PostResponse(PostBase):
     user: UserOut
 
     class Config:
-        orm_mode = True
-        
+        from_attributes = True  
+
 class PostOut(BaseModel):
     Post: PostResponse
     votes: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True  
 
 class Token(BaseModel):
     access_token: str
@@ -52,10 +52,8 @@ class TokenData(BaseModel):
     email: EmailStr
 
     class Config:
-        orm_mode = True
-
+        from_attributes = True  
 
 class Vote(BaseModel):
     post_id: int
-    dir: Annotated[int, Field(ge=0, le=1)]  
-
+    dir: Annotated[int, Field(ge=0, le=1)]
