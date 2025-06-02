@@ -7,14 +7,16 @@ from .social_media.auth import router as login_router
 from .social_media.users import user_router
 from .social_media.vote import router as vote_router
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Request
 import uvicorn
 import os
 
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
+
+@app.api_route("/", methods=["GET", "HEAD"])
+def read_root(request: Request):
     return {"message": "Welcome to VibeLink app"}
 
 
